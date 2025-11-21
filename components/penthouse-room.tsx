@@ -3,11 +3,11 @@
 import { useState } from "react"
 import PenthouseFlipbook from "./penthouse-flipbook"
 
-export default function PenthouseRoom({ onComplete }: { onComplete: () => void }) {
+export default function PenthouseRoom({ onBack }: { onBack: () => void }) {
   const [showFlipbook, setShowFlipbook] = useState(false)
 
   if (showFlipbook) {
-    return <PenthouseFlipbook onComplete={onComplete} />
+    return <PenthouseFlipbook onBack={onBack} />
   }
 
   return (

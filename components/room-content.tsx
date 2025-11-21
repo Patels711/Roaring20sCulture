@@ -40,7 +40,7 @@ const ROOM_CONTENTS = {
   },
 }
 
-export default function RoomContent({ roomId, onStartQuiz }: RoomContentProps) {
+export default function RoomContent({ roomId, onStartQuiz, onExit }: RoomContentProps) {
   const content = ROOM_CONTENTS[roomId as keyof typeof ROOM_CONTENTS]
 
   if (roomId === "penthouse") {

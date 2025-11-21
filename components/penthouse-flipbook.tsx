@@ -110,9 +110,9 @@ const PENTHOUSE_PAGES: FlipBookPage[] = [
 ]
 
 export default function PenthouseFlipbook({
-  onComplete,
+  onBack,
 }: {
-  onComplete: () => void
+  onBack: () => void
 }) {
   const [currentPage, setCurrentPage] = useState(0)
   const [selectedAnswers, setSelectedAnswers] = useState<number[]>([])
@@ -281,7 +281,7 @@ export default function PenthouseFlipbook({
                     : "Good effort! Review the content and try again."}
               </p>
               <button
-                onClick={onComplete}
+                onClick={onBack}
                 className="w-full px-6 py-3 bg-amber-600 hover:bg-amber-500 text-slate-950 rounded-lg transition-colors font-light uppercase tracking-widest"
               >
                 Complete Level
