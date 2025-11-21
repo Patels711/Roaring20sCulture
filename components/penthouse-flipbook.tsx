@@ -6,9 +6,7 @@ import { ChevronLeft, ChevronRight } from "lucide-react"
 interface FlipBookPage {
   title: string
   content: string
-  type: "content" | "question"
-  options?: string[]
-  correctAnswer?: number
+  type: "content"
 }
 
 const PENTHOUSE_PAGES: FlipBookPage[] = [
@@ -59,54 +57,6 @@ const PENTHOUSE_PAGES: FlipBookPage[] = [
       "Women in the 1920s gained new forms of self-expression through the 'flapper' identity, which challenged traditional expectations. Many cut their hair short, drove cars, held jobs, and explored new freedoms. The 19th Amendment opened a new stage of the women's rights movement.",
     type: "content",
   },
-  {
-    title: "Question 1 of 4",
-    content: "How did economic decisions in the 1920s promote personal freedom?",
-    type: "question",
-    options: [
-      "Factory jobs decreased while working hours increased",
-      "Factory jobs increased while working hours decreased from 70 to 45 hours per week",
-      "Agricultural economy improved in rural areas",
-      "Prohibition created more economic opportunities",
-    ],
-    correctAnswer: 1,
-  },
-  {
-    title: "Question 2 of 4",
-    content: "What role did technology and entertainment play in creating pop culture?",
-    type: "question",
-    options: [
-      "They isolated people from each other",
-      "They allowed shared experiences through motion pictures and radio",
-      "They prevented women from participating",
-      "They only benefited rural areas",
-    ],
-    correctAnswer: 1,
-  },
-  {
-    title: "Question 3 of 4",
-    content: "How did cities differ from rural areas in the 1920s?",
-    type: "question",
-    options: [
-      "Rural areas were more tolerant of different cultures",
-      "Cities rejected new technologies",
-      "Cities were more tolerant of different cultures and minorities",
-      "Rural areas had better economic opportunities",
-    ],
-    correctAnswer: 2,
-  },
-  {
-    title: "Question 4 of 4",
-    content: "What symbol of female empowerment emerged in the 1920s?",
-    type: "question",
-    options: [
-      "The suffragette movement only",
-      "Rural farming cooperatives",
-      "The 'flapper' identity with shorter hair, cars, and jobs",
-      "Factory worker unions",
-    ],
-    correctAnswer: 2,
-  },
 ]
 
 export default function PenthouseFlipbook({
@@ -115,8 +65,6 @@ export default function PenthouseFlipbook({
   onBack: () => void
 }) {
   const [currentPage, setCurrentPage] = useState(0)
-  const [selectedAnswers, setSelectedAnswers] = useState<number[]>([])
-  const [showResults, setShowResults] = useState(false)
 
   const page = PENTHOUSE_PAGES[currentPage]
   const progress = ((currentPage + 1) / PENTHOUSE_PAGES.length) * 100
@@ -132,21 +80,6 @@ export default function PenthouseFlipbook({
       setCurrentPage(currentPage - 1)
     }
   }
-
-  const handleAnswerSelect = (optionIndex: number) => {
-    const newAnswers = [...selectedAnswers]
-    newAnswers[currentPage] = optionIndex
-    setSelectedAnswers(newAnswers)
-  }
-
-  const handleFinish = () => {
-    setShowResults(true)
-  }
-
-  const correctAnswers = selectedAnswers.filter((answer, index) => {
-    const questionPage = PENTHOUSE_PAGES[index + 8] // Questions start at index 8
-    return questionPage && questionPage.type === "question" && answer === questionPage.correctAnswer
-  }).length
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-950 via-slate-900 to-slate-950 flex items-center justify-center p-4">
@@ -182,56 +115,21 @@ export default function PenthouseFlipbook({
 
             {/* Page Content */}
             <div className="p-8 md:p-12 min-h-96 flex flex-col justify-center">
-              {page.type === "content" ? (
-                <div className="space-y-6">
-                  <p className="text-lg md:text-xl leading-relaxed text-slate-100 font-light text-balance">
-                    {page.content}
-                  </p>
-                  <div className="flex gap-2 pt-4">
-                    {PENTHOUSE_PAGES.slice(0, 8).map((_, idx) => (
-                      <div
-                        key={idx}
-                        className={`h-1 flex-1 rounded-full transition-colors ${
-                          idx === currentPage ? "bg-amber-400" : "bg-slate-700"
-                        }`}
-                      />
-                    ))}
-                  </div>
+              <div className="space-y-6">
+                <p className="text-lg md:text-xl leading-relaxed text-slate-100 font-light text-balance">
+                  {page.content}
+                </p>
+                <div className="flex gap-2 pt-4">
+                  {PENTHOUSE_PAGES.map((_, idx) => (
+                    <div
+                      key={idx}
+                      className={`h-1 flex-1 rounded-full transition-colors ${
+                        idx === currentPage ? "bg-amber-400" : "bg-slate-700"
+                      }`}
+                    />
+                  ))}
                 </div>
-              ) : (
-                <div className="space-y-6">
-                  <p className="text-lg md:text-xl font-light text-slate-100 mb-8 text-balance">{page.content}</p>
-
-                  <div className="space-y-3">
-                    {page.options?.map((option, idx) => (
-                      <button
-                        key={idx}
-                        onClick={() => handleAnswerSelect(idx)}
-                        className={`w-full p-4 rounded-lg border-2 text-left transition-all duration-200 font-light ${
-                          selectedAnswers[currentPage] === idx
-                            ? "border-amber-400 bg-amber-400/10 text-amber-50"
-                            : "border-slate-600 bg-slate-800/50 text-slate-200 hover:border-amber-400/50 hover:bg-slate-800"
-                        }`}
-                      >
-                        <div className="flex items-center gap-3">
-                          <div
-                            className={`w-5 h-5 rounded border-2 flex items-center justify-center transition-colors ${
-                              selectedAnswers[currentPage] === idx
-                                ? "border-amber-400 bg-amber-400"
-                                : "border-slate-500"
-                            }`}
-                          >
-                            {selectedAnswers[currentPage] === idx && (
-                              <span className="text-slate-950 text-sm font-bold">✓</span>
-                            )}
-                          </div>
-                          <span>{option}</span>
-                        </div>
-                      </button>
-                    ))}
-                  </div>
-                </div>
-              )}
+              </div>
             </div>
 
             {/* Navigation */}
@@ -245,14 +143,7 @@ export default function PenthouseFlipbook({
                 Previous
               </button>
 
-              {currentPage === PENTHOUSE_PAGES.length - 1 && !showResults ? (
-                <button
-                  onClick={handleFinish}
-                  className="px-8 py-2 rounded-lg bg-amber-600 hover:bg-amber-500 text-slate-950 transition-colors font-light uppercase tracking-widest text-sm"
-                >
-                  Submit Answers
-                </button>
-              ) : currentPage < PENTHOUSE_PAGES.length - 1 ? (
+              {currentPage < PENTHOUSE_PAGES.length - 1 ? (
                 <button
                   onClick={handleNext}
                   className="flex items-center gap-2 px-6 py-2 rounded-lg bg-amber-600 hover:bg-amber-500 text-slate-950 transition-colors font-light"
@@ -260,35 +151,17 @@ export default function PenthouseFlipbook({
                   Next
                   <ChevronRight size={20} />
                 </button>
-              ) : null}
+              ) : (
+                <button
+                  onClick={onBack}
+                  className="px-8 py-2 rounded-lg bg-amber-600 hover:bg-amber-500 text-slate-950 transition-colors font-light uppercase tracking-widest text-sm"
+                >
+                  Complete Level
+                </button>
+              )}
             </div>
           </div>
         </div>
-
-        {/* Results Modal */}
-        {showResults && (
-          <div className="fixed inset-0 bg-black/50 backdrop-blur-sm flex items-center justify-center p-4 z-50">
-            <div className="bg-gradient-to-br from-slate-800 to-slate-900 rounded-lg p-8 max-w-md text-center border border-amber-500/20">
-              <p className="text-amber-400 text-sm uppercase tracking-widest font-light mb-4">Quiz Complete</p>
-              <h3 className="text-4xl font-light text-amber-50 mb-2">
-                {correctAnswers}/{PENTHOUSE_PAGES.length - 8}
-              </h3>
-              <p className="text-slate-300 text-sm mb-8">
-                {correctAnswers === 4
-                  ? "Perfect! You've mastered the Roaring Twenties!"
-                  : correctAnswers >= 3
-                    ? "Excellent understanding of the era!"
-                    : "Good effort! Review the content and try again."}
-              </p>
-              <button
-                onClick={onBack}
-                className="w-full px-6 py-3 bg-amber-600 hover:bg-amber-500 text-slate-950 rounded-lg transition-colors font-light uppercase tracking-widest"
-              >
-                Complete Level
-              </button>
-            </div>
-          </div>
-        )}
       </div>
     </div>
   )
