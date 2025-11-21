@@ -4,7 +4,7 @@ import { useState } from "react"
 import PenthouseFlipbook from "./penthouse-flipbook"
 
 export default function PenthouseRoom({ onBack }: { onBack: () => void }) {
-  const [showFlipbook, setShowFlipbook] = useState(false)
+  const [showFlipbook, setShowFlipbook] = useState(true)
 
   if (showFlipbook) {
     return <PenthouseFlipbook onBack={onBack} />
