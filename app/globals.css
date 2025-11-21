@@ -1,0 +1,567 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+:root {
+  /* Art Deco Eloquent Palette - Gold, Cream, Black Only */
+  --background: oklch(0.05 0 0);
+  --foreground: oklch(0.98 0.01 60);
+  --card: oklch(0.12 0.01 60);
+  --card-foreground: oklch(0.98 0.01 60);
+  --popover: oklch(0.12 0.01 60);
+  --popover-foreground: oklch(0.98 0.01 60);
+  --primary: oklch(0.82 0.24 75);
+  --primary-foreground: oklch(0.05 0 0);
+  --secondary: oklch(0.85 0.15 70);
+  --secondary-foreground: oklch(0.05 0 0);
+  --muted: oklch(0.28 0.06 60);
+  --muted-foreground: oklch(0.7 0.04 60);
+  --accent: oklch(0.9 0.18 60);
+  --accent-foreground: oklch(0.05 0 0);
+  --destructive: oklch(0.577 0.245 27.325);
+  --destructive-foreground: oklch(0.98 0.01 60);
+  --border: oklch(0.22 0.05 60);
+  --input: oklch(0.15 0.04 60);
+  --ring: oklch(0.82 0.24 75);
+  --chart-1: oklch(0.82 0.24 75);
+  --chart-2: oklch(0.85 0.15 70);
+  --chart-3: oklch(0.9 0.18 60);
+  --chart-4: oklch(0.75 0.12 65);
+  --chart-5: oklch(0.88 0.2 72);
+  --radius: 0.375rem;
+  --sidebar: oklch(0.12 0.01 60);
+  --sidebar-foreground: oklch(0.98 0.01 60);
+  --sidebar-primary: oklch(0.82 0.24 75);
+  --sidebar-primary-foreground: oklch(0.05 0 0);
+  --sidebar-accent: oklch(0.85 0.15 70);
+  --sidebar-accent-foreground: oklch(0.05 0 0);
+  --sidebar-border: oklch(0.22 0.05 60);
+  --sidebar-ring: oklch(0.82 0.24 75);
+}
+
+.dark {
+  --background: oklch(0.05 0 0);
+  --foreground: oklch(0.98 0.01 60);
+  --card: oklch(0.12 0.01 60);
+  --card-foreground: oklch(0.98 0.01 60);
+  --popover: oklch(0.12 0.01 60);
+  --popover-foreground: oklch(0.98 0.01 60);
+  --primary: oklch(0.82 0.24 75);
+  --primary-foreground: oklch(0.05 0 0);
+  --secondary: oklch(0.85 0.15 70);
+  --secondary-foreground: oklch(0.05 0 0);
+  --muted: oklch(0.28 0.06 60);
+  --muted-foreground: oklch(0.7 0.04 60);
+  --accent: oklch(0.9 0.18 60);
+  --accent-foreground: oklch(0.05 0 0);
+  --destructive: oklch(0.63 0.23 25);
+  --destructive-foreground: oklch(0.98 0.01 60);
+  --border: oklch(0.22 0.05 60);
+  --input: oklch(0.15 0.04 60);
+  --ring: oklch(0.82 0.24 75);
+  --chart-1: oklch(0.82 0.24 75);
+  --chart-2: oklch(0.85 0.15 70);
+  --chart-3: oklch(0.9 0.18 60);
+  --chart-4: oklch(0.75 0.12 65);
+  --chart-5: oklch(0.88 0.2 72);
+  --sidebar: oklch(0.12 0.01 60);
+  --sidebar-foreground: oklch(0.98 0.01 60);
+  --sidebar-primary: oklch(0.82 0.24 75);
+  --sidebar-primary-foreground: oklch(0.05 0 0);
+  --sidebar-accent: oklch(0.85 0.15 70);
+  --sidebar-accent-foreground: oklch(0.05 0 0);
+  --sidebar-border: oklch(0.22 0.05 60);
+  --sidebar-ring: oklch(0.82 0.24 75);
+}
+
+@theme inline {
+  --font-sans: "Geist", "Geist Fallback";
+  --font-mono: "Geist Mono", "Geist Mono Fallback";
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --radius-sm: calc(var(--radius) - 2px);
+  --radius-md: calc(var(--radius) - 1px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+/* Golden glow animations - removed blue/orange, pure gold eloquence */
+@keyframes glow {
+  0%,
+  100% {
+    text-shadow: 0 0 15px rgba(237, 191, 89, 0.5), 0 0 25px rgba(237, 191, 89, 0.3), 0 0 40px rgba(237, 191, 89, 0.1);
+  }
+  50% {
+    text-shadow: 0 0 30px rgba(237, 191, 89, 0.9), 0 0 45px rgba(237, 191, 89, 0.6), 0 0 60px rgba(237, 191, 89, 0.2);
+  }
+}
+
+@keyframes art-deco-pulse {
+  0%,
+  100% {
+    opacity: 0.6;
+    filter: drop-shadow(0 0 8px rgba(237, 191, 89, 0.4));
+  }
+  50% {
+    opacity: 1;
+    filter: drop-shadow(0 0 20px rgba(237, 191, 89, 0.8));
+  }
+}
+
+@keyframes building-ascend {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes shimmer-gold {
+  0% {
+    background-position: -1000px 0;
+  }
+  100% {
+    background-position: 1000px 0;
+  }
+}
+
+@keyframes floor-glow {
+  0%,
+  100% {
+    box-shadow: inset 0 0 25px rgba(237, 191, 89, 0.25), 0 0 30px rgba(237, 191, 89, 0.2), 0 0 50px
+      rgba(237, 191, 89, 0.1);
+  }
+  50% {
+    box-shadow: inset 0 0 40px rgba(237, 191, 89, 0.5), 0 0 50px rgba(237, 191, 89, 0.35), 0 0 80px
+      rgba(237, 191, 89, 0.2);
+  }
+}
+
+@keyframes geometric-rotate {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes float-up {
+  0% {
+    transform: translateY(0px);
+    opacity: 0.1;
+  }
+  50% {
+    opacity: 0.3;
+  }
+  100% {
+    transform: translateY(-100px);
+    opacity: 0;
+  }
+}
+
+/* Replace the old border-glow animation with more eloquent, glowing effect */
+@keyframes elegant-glow {
+  0%,
+  100% {
+    border-color: rgba(217, 119, 6, 0.5);
+    box-shadow: 0 0 20px rgba(217, 119, 6, 0.3), inset 0 0 20px rgba(217, 119, 6, 0.1);
+  }
+  50% {
+    border-color: rgba(217, 119, 6, 0.8);
+    box-shadow: 0 0 40px rgba(217, 119, 6, 0.6), inset 0 0 30px rgba(217, 119, 6, 0.2);
+  }
+}
+
+.elegant-border-glow {
+  animation: elegant-glow 3s ease-in-out infinite;
+}
+
+/* Add animated outline animation for text */
+@keyframes text-outline-glow {
+  0%,
+  100% {
+    text-shadow:
+      0 0 15px rgba(237, 191, 89, 0.6),
+      0 0 25px rgba(237, 191, 89, 0.4),
+      -2px -2px 0 rgba(237, 191, 89, 0.3),
+      2px -2px 0 rgba(237, 191, 89, 0.3),
+      -2px 2px 0 rgba(237, 191, 89, 0.3),
+      2px 2px 0 rgba(237, 191, 89, 0.3);
+  }
+  50% {
+    text-shadow:
+      0 0 25px rgba(237, 191, 89, 0.9),
+      0 0 35px rgba(237, 191, 89, 0.7),
+      -3px -3px 0 rgba(237, 191, 89, 0.5),
+      3px -3px 0 rgba(237, 191, 89, 0.5),
+      -3px 3px 0 rgba(237, 191, 89, 0.5),
+      3px 3px 0 rgba(237, 191, 89, 0.5);
+  }
+}
+
+.text-outline-glow {
+  animation: text-outline-glow 2.5s ease-in-out infinite;
+  letter-spacing: 0.15em;
+}
+
+.glow-text {
+  animation: glow 3s ease-in-out infinite;
+}
+
+.art-deco-pulse {
+  animation: art-deco-pulse 2s ease-in-out infinite;
+}
+
+.building-ascend {
+  animation: building-ascend 0.6s ease-out;
+}
+
+.shimmer-gold {
+  background: linear-gradient(90deg, rgba(237, 191, 89, 0.15), rgba(237, 191, 89, 0.4), rgba(237, 191, 89, 0.15));
+  background-size: 1000px 100%;
+  animation: shimmer-gold 3s linear infinite;
+}
+
+.floor-glow {
+  animation: floor-glow 3s ease-in-out infinite;
+}
+
+.geometric-rotate {
+  animation: geometric-rotate 20s linear infinite;
+}
+
+.float-up {
+  animation: float-up 4s ease-out infinite;
+}
+
+/*.border-glow {*/
+/*  animation: border-glow 3s ease-in-out infinite;*/
+/*}*/
+
+/* Art deco geometric patterns and borders */
+.art-deco-border {
+  border: 2px solid;
+  border-color: rgba(217, 119, 6, 0.6);
+  position: relative;
+}
+
+.art-deco-frame {
+  position: relative;
+  overflow: hidden;
+}
+
+.art-deco-frame::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, rgba(237, 191, 89, 0.1) 1px, transparent 1px),
+    linear-gradient(rgba(237, 191, 89, 0.05) 1px, transparent 1px);
+  background-size: 40px 40px;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.art-deco-corner {
+  position: relative;
+}
+
+.art-deco-corner::before,
+.art-deco-corner::after {
+  content: "";
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  border: 2px solid var(--primary);
+  pointer-events: none;
+}
+
+.art-deco-corner::before {
+  top: -2px;
+  left: -2px;
+  border-right: none;
+  border-bottom: none;
+}
+
+.art-deco-corner::after {
+  bottom: -2px;
+  right: -2px;
+  border-left: none;
+  border-top: none;
+}
+
+/* Added fancy decorative elements */
+.deco-divider {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  color: var(--primary);
+}
+
+.deco-divider::before,
+.deco-divider::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--primary), transparent);
+}
+
+.deco-dot {
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: var(--accent);
+}
+
+.triangle-deco {
+  width: 0;
+  height: 0;
+  border-left: 8px solid transparent;
+  border-right: 8px solid transparent;
+  border-bottom: 12px solid var(--primary);
+}
+
+/* Background patterns and effects */
+.art-deco-bg {
+  position: relative;
+  overflow: hidden;
+}
+
+.art-deco-bg::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(circle at 20% 50%, rgba(237, 191, 89, 0.08) 0%, transparent 50%),
+    radial-gradient(circle at 80% 80%, rgba(237, 191, 89, 0.08) 0%, transparent 50%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Add art deco mural backgrounds and layering */
+/* Updated mural background to display at proper resolution without zooming */
+.mural-bg-main {
+  background-image: url("/images/deco-mural.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center;
+}
+
+.mural-bg-1 {
+  background-image: url("/images/image.png");
+  background-size: cover;
+  background-attachment: fixed;
+  background-position: center;
+}
+
+/* Overlay for readability over mural backgrounds */
+/* Lightened overlay to allow mural visibility while maintaining readability */
+.mural-overlay {
+  background: linear-gradient(
+    135deg,
+    rgba(5, 5, 5, 0.6) 0%,
+    rgba(20, 20, 35, 0.55) 25%,
+    rgba(10, 10, 20, 0.5) 50%,
+    rgba(15, 15, 30, 0.55) 75%,
+    rgba(5, 5, 5, 0.6) 100%
+  );
+  backdrop-filter: blur(1px);
+}
+
+.mural-overlay-light {
+  background: linear-gradient(
+    135deg,
+    rgba(5, 5, 5, 0.4) 0%,
+    rgba(20, 20, 35, 0.38) 25%,
+    rgba(10, 10, 20, 0.35) 50%,
+    rgba(15, 15, 30, 0.38) 75%,
+    rgba(5, 5, 5, 0.4) 100%
+  );
+  backdrop-filter: blur(0.5px);
+}
+
+/* Add new CSS class for blurred header background */
+.header-blurred {
+  background: linear-gradient(135deg, rgba(5, 5, 5, 0.3) 0%, rgba(20, 20, 35, 0.25) 50%, rgba(5, 5, 5, 0.3) 100%);
+  backdrop-filter: blur(8px);
+}
+
+/* Enhanced glow effects for mural backgrounds */
+.mural-glow {
+  position: relative;
+  overflow: hidden;
+}
+
+.mural-glow::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 30% 40%, rgba(237, 191, 89, 0.15) 0%, transparent 40%),
+    radial-gradient(circle at 70% 60%, rgba(237, 191, 89, 0.12) 0%, transparent 40%);
+  pointer-events: none;
+  z-index: 2;
+}
+
+/* Add new room background class */
+.room-bg-main {
+  background-image: url("/images/room-bg.png");
+  background-size: cover;
+  background-attachment: fixed;
+  background-position: center;
+}
+
+.room-overlay {
+  background: linear-gradient(
+    135deg,
+    rgba(5, 5, 5, 0.5) 0%,
+    rgba(20, 20, 35, 0.48) 25%,
+    rgba(10, 10, 20, 0.45) 50%,
+    rgba(15, 15, 30, 0.48) 75%,
+    rgba(5, 5, 5, 0.5) 100%
+  );
+  backdrop-filter: blur(1px);
+}
+
+/* Interactive card hover effects */
+@keyframes card-lift {
+  0% {
+    transform: translateY(0px);
+  }
+  100% {
+    transform: translateY(-8px);
+  }
+}
+
+.card-hover-lift:hover {
+  animation: card-lift 0.3s ease-out forwards;
+}
+
+/* Timeline decoration */
+.timeline-marker {
+  position: relative;
+  padding-left: 40px;
+}
+
+.timeline-marker::before {
+  content: "";
+  position: absolute;
+  left: 8px;
+  top: 6px;
+  width: 16px;
+  height: 16px;
+  background: var(--primary);
+  border: 2px solid var(--background);
+  border-radius: 50%;
+  box-shadow: 0 0 15px rgba(237, 191, 89, 0.6);
+}
+
+.timeline-marker::after {
+  content: "";
+  position: absolute;
+  left: 15px;
+  top: 30px;
+  width: 2px;
+  height: 100%;
+  background: linear-gradient(180deg, var(--primary), rgba(237, 191, 89, 0.4));
+  opacity: 0.4;
+}
+
+/* Add chrome/metallic side decorations */
+.chrome-accent-left,
+.chrome-accent-right {
+  position: absolute;
+  top: 0;
+  width: 40px;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    rgba(200, 200, 200, 0.15) 0%,
+    rgba(220, 220, 220, 0.25) 25%,
+    rgba(180, 180, 180, 0.15) 50%,
+    rgba(220, 220, 220, 0.25) 75%,
+    rgba(200, 200, 200, 0.15) 100%
+  );
+  border-top: 3px solid rgba(200, 200, 200, 0.4);
+  border-bottom: 3px solid rgba(150, 150, 150, 0.3);
+  box-shadow: inset 1px 0 3px rgba(255, 255, 255, 0.3), inset -1px 0 3px rgba(0, 0, 0, 0.5);
+}
+
+.chrome-accent-left {
+  left: -40px;
+  border-right: 2px solid rgba(180, 180, 180, 0.3);
+}
+
+.chrome-accent-right {
+  right: -40px;
+  border-left: 2px solid rgba(180, 180, 180, 0.3);
+}
+
+/* Section reveal animation */
+@keyframes reveal-section {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.reveal-section {
+  animation: reveal-section 0.6s ease-out forwards;
+}
+
+/* New eloquent styling for content sections */
+.section-header-glow {
+  border-color: rgba(217, 119, 6, 0.6);
+  transition: all 0.3s ease;
+}
+
+.section-header-glow:hover {
+  border-color: rgba(217, 119, 6, 0.9);
+  box-shadow: 0 4px 20px rgba(217, 119, 6, 0.4);
+}
