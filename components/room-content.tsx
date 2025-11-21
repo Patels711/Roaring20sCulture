@@ -5,6 +5,7 @@ import PenthouseRoom from "./penthouse-room"
 interface RoomContentProps {
   roomId: string
   onStartQuiz: () => void
+  onExit: () => void
 }
 
 const ROOM_CONTENTS = {
@@ -43,7 +44,7 @@ export default function RoomContent({ roomId, onStartQuiz }: RoomContentProps) {
   const content = ROOM_CONTENTS[roomId as keyof typeof ROOM_CONTENTS]
 
   if (roomId === "penthouse") {
-    return <PenthouseRoom onComplete={onStartQuiz} />
+    return <PenthouseRoom onBack={onExit} />
   }
 
   if (roomId === "culture-urban") {

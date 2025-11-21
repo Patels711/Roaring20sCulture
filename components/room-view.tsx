@@ -88,7 +88,7 @@ export default function RoomView({ roomId, onComplete, onExit, completedRooms }:
       </header>
 
       <main className="max-w-7xl mx-auto px-4 py-12 relative z-10 bg-black">
-        <RoomContent roomId={roomId} onStartQuiz={() => setQuizStarted(true)} />
+        <RoomContent roomId={roomId} onStartQuiz={() => setQuizStarted(true)} onExit={onExit} />
       </main>
     </div>
   )
