@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react"
 import QuizPanel from "./quiz-panel"
 import RoomContent from "./room-content"
+import PenthouseRoom from "./penthouse-room"
 
 interface RoomViewProps {
   roomId: string
