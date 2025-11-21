@@ -13,14 +13,8 @@ interface RoomViewProps {
 
 export default function RoomView({ roomId, onComplete, onExit, completedRooms }: RoomViewProps) {
   // Bypass quiz for penthouse room
-  if (roomId === "penthouse") {
-    return (
-      <div className="min-h-screen relative">
-        <main className="max-w-7xl mx-auto px-4 py-12 relative z-10 bg-black">
-          <RoomContent roomId={roomId} onStartQuiz={() => {}} onExit={onExit} />
-        </main>
-      </div>
-    )
+  if (roomId === "6") {
+    return <PenthouseRoom onBack={onExit} />
   }
 
   const [quizStarted, setQuizStarted] = useState(false)
