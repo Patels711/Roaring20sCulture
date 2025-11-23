@@ -12,8 +12,8 @@ export default function PenthouseRoom({ onBack }: { onBack: () => void }) {
   }
 
   if (showEssays) {
-    const PodcastZone = require("../app/podcast-zone").default
-    return <PodcastZone onComplete={onBack} />
+    const PodcastZoneEssays = require("./podcast-zone-essays").default
+    return <PodcastZoneEssays onBack={onBack} />
   }
 
   return <PenthouseFlipbook onBack={onBack} onGoToPodcastZone={handleGoToPodcastZone} />
