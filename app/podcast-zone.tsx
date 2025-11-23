@@ -22,18 +22,18 @@ export default function PodcastZone({ onComplete }: { onComplete: () => void }) 
           <PenthouseFlipbook onBack={() => onComplete()} onGoToPodcastZone={() => setView("essays")} />
           <div className="mt-6 flex justify-center gap-8">
             <button
+              onClick={() => window.open("https://roaring20s-culture.vercel.app/", "_blank")}
+              className="px-8 py-3 bg-amber-700 hover:bg-amber-600 rounded font-semibold"
+              type="button"
+            >
+              Complete Level
+            </button>
+            <button
               onClick={() => setView("essays")}
               className="px-8 py-3 bg-amber-600 hover:bg-amber-500 rounded font-semibold"
               type="button"
             >
               View Essays
-            </button>
-            <button
-              onClick={() => onComplete()}
-              className="px-8 py-3 bg-amber-700 hover:bg-amber-600 rounded font-semibold"
-              type="button"
-            >
-              Return to Levels
             </button>
           </div>
         </>

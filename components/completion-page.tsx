@@ -39,6 +39,13 @@ export default function CompletionPage() {
             You've successfully navigated through the culture, innovation, and spirit of the 1920s
           </p>
         </div>
+        <button
+          onClick={() => window.open("https://roaring20s-culture.vercel.app/", "_blank")}
+          className="mt-8 px-12 py-4 bg-amber-600 hover:bg-amber-500 rounded font-semibold uppercase tracking-wide"
+          type="button"
+        >
+          Visit Roaring 20s Culture Escape Room
+        </button>
       </div>
 
       {/* Corner decorative elements */}
