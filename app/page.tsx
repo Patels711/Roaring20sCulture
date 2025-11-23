@@ -29,8 +29,14 @@ export default function Home() {
     setCompletedRooms(["intro", "women", "leisure-tech", "modernism", "culture-urban"])
   }
 
+  const handleRestartWithAllLevels = () => {
+    setCompletedRooms(["intro", "women", "leisure-tech", "modernism", "culture-urban", "answers"])
+    setHasEscaped(false)
+    setCurrentRoom(null)
+  }
+
   if (hasEscaped) {
-    return <CompletionPage />
+    return <CompletionPage onRestart={handleRestartWithAllLevels} />
   }
 
   if (currentRoom) {

@@ -1,4 +1,8 @@
-export default function CompletionPage() {
+type CompletionPageProps = {
+  onRestart: () => void
+}
+
+export default function CompletionPage({ onRestart }: CompletionPageProps) {
   return (
     <div className="min-h-screen bg-black flex items-center justify-center relative overflow-hidden">
       {/* Background image */}
@@ -40,11 +44,11 @@ export default function CompletionPage() {
           </p>
         </div>
         <button
-          onClick={() => window.open("https://roaring20s-culture.vercel.app/", "_blank")}
+          onClick={onRestart}
           className="mt-8 px-12 py-4 bg-amber-600 hover:bg-amber-500 rounded font-semibold uppercase tracking-wide"
           type="button"
         >
-          Visit Roaring 20s Culture Escape Room
+          Return to Levels with All Complete
         </button>
       </div>
 
