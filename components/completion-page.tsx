@@ -12,7 +12,7 @@ export default function CompletionPage() {
       </div>
 
       {/* Content */}
-      <div className="relative z-10 text-center px-4 max-w-4xl mx-auto">
+      <div className="relative z-10 px-4 max-w-4xl mx-auto flex flex-col items-center justify-center text-center">
         {/* Main congratulations text */}
         <div className="mb-8">
           <h1 className="text-6xl md:text-7xl lg:text-8xl font-black text-amber-400 uppercase tracking-wider mb-6 drop-shadow-2xl animate-pulse">
