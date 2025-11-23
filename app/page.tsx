@@ -67,13 +67,7 @@ export default function Home() {
   return (
     <>
       <MuseumLobby onSelectRoom={setCurrentRoom} completedRooms={completedRooms} onEnterPodcastZone={enterPodcastZone} />
-      <button
-        type="button"
-        onClick={enterPodcastZone}
-        className="fixed bottom-20 right-4 px-2 py-1 bg-primary/50 text-xs rounded opacity-50 hover:opacity-100 transition-opacity z-50"
-      >
-        Enter Podcast Zone
-      </button>
+      {/* Removed Enter Podcast Zone button as per user request */}
       <button
         onClick={handleUnlockAll}
         className="fixed bottom-4 right-4 px-2 py-1 bg-primary/50 text-xs rounded opacity-50 hover:opacity-100 transition-opacity z-50"

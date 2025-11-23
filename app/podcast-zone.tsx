@@ -21,16 +21,10 @@ export default function PodcastZone({ onComplete, onCompleteAll }: { onComplete:
         <>
           <PenthouseFlipbook onBack={() => onComplete()} onGoToPodcastZone={() => setView("essays")} />
           <div className="mt-6 flex justify-center gap-8">
-            <button
-              onClick={onCompleteAll}
-              className="px-8 py-3 bg-amber-700 hover:bg-amber-600 rounded font-semibold"
-              type="button"
-            >
-              Complete Level
-            </button>
+            {/* Removed Complete Level button as per user request */}
             <button
               onClick={() => setView("essays")}
-              className="px-8 py-3 bg-amber-600 hover:bg-amber-500 rounded font-semibold"
+              className="px-12 py-4 bg-amber-600 hover:bg-amber-500 rounded font-semibold text-lg w-full max-w-lg mx-auto"
               type="button"
             >
               View Essays
