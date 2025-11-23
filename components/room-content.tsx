@@ -44,7 +44,8 @@ export default function RoomContent({ roomId, onStartQuiz, onExit }: RoomContent
   const content = ROOM_CONTENTS[roomId as keyof typeof ROOM_CONTENTS]
 
   if (roomId === "answers") {
-    return <PenthouseRoom onBack={onExit} />
+    const PodcastZone = require("../app/podcast-zone").default
+    return <PodcastZone onComplete={onExit} />
   }
 
   if (roomId === "culture-urban") {
