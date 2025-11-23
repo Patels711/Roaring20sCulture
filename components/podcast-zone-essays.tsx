@@ -1,6 +1,6 @@
 "use client"
 
-export default function PodcastZoneEssays({ onBack }: { onBack: () => void }) {
+export default function PodcastZoneEssays({ onBack, onShowCongratulations }: { onBack: () => void, onShowCongratulations: () => void }) {
   return (
     <div className="min-h-screen p-12 bg-gradient-to-r from-gray-900 via-gray-800 to-gray-900 text-amber-300 max-w-5xl mx-auto rounded-xl shadow-lg flex flex-col">
       <header className="flex justify-between items-center mb-8">
@@ -68,24 +68,14 @@ export default function PodcastZoneEssays({ onBack }: { onBack: () => void }) {
       <div className="mt-auto flex justify-center space-x-8">
         <button
           type="button"
-          onClick={() => {
-            if (typeof window !== "undefined") {
-              // Swap fix: This button leads to levels screen
-              window.location.href = "/"
-            }
-          }}
+          onClick={onBack}
           className="mb-4 px-12 py-4 bg-amber-600 hover:bg-amber-500 rounded font-semibold"
         >
           Back to Main Screen
         </button>
         <button
           type="button"
-          onClick={() => {
-            if (typeof window !== "undefined") {
-              // Swap fix: This button leads to congratulations screen
-              window.location.href = "/?escaped=true"
-            }
-          }}
+          onClick={onShowCongratulations}
           className="mb-4 px-12 py-4 bg-amber-700 hover:bg-amber-600 rounded font-semibold"
         >
           Congratulations Screen
