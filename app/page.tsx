@@ -4,6 +4,7 @@ import { useState, useEffect } from "react"
 import MuseumLobby from "@/components/museum-lobby"
 import RoomView from "@/components/room-view"
 import CompletionPage from "@/components/completion-page"
+import PodcastZone from "@/app/podcast-zone.tsx"
 
 export default function Home() {
   const [currentRoom, setCurrentRoom] = useState<string | null>(null)
@@ -53,6 +54,7 @@ export default function Home() {
   return (
     <>
       <MuseumLobby onSelectRoom={setCurrentRoom} completedRooms={completedRooms} />
+      <PodcastZone onComplete={handleRoomComplete} onCompleteAll={handleRestartWithAllLevels} />
       <button
         onClick={handleUnlockAll}
         className="fixed bottom-4 right-4 px-2 py-1 bg-primary/50 text-xs rounded opacity-50 hover:opacity-100 transition-opacity z-50"

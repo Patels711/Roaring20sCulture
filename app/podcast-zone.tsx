@@ -4,7 +4,7 @@ import { useState } from "react"
 import PodcastZoneEssays from "../components/podcast-zone-essays"
 import PenthouseFlipbook from "../components/penthouse-flipbook"
 
-export default function PodcastZone({ onComplete }: { onComplete: () => void }) {
+export default function PodcastZone({ onComplete, onCompleteAll }: { onComplete: () => void, onCompleteAll: () => void }) {
   const [view, setView] = useState<"flipbook" | "essays">("flipbook")
 
   const handleBackToFlipbook = () => {
@@ -22,7 +22,7 @@ export default function PodcastZone({ onComplete }: { onComplete: () => void }) 
           <PenthouseFlipbook onBack={() => onComplete()} onGoToPodcastZone={() => setView("essays")} />
           <div className="mt-6 flex justify-center gap-8">
             <button
-              onClick={() => window.open("https://roaring20s-culture.vercel.app/", "_blank")}
+              onClick={onCompleteAll}
               className="px-8 py-3 bg-amber-700 hover:bg-amber-600 rounded font-semibold"
               type="button"
             >

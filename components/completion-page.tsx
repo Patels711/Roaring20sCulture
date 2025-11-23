@@ -48,7 +48,7 @@ export default function CompletionPage({ onRestart }: CompletionPageProps) {
           className="mt-8 px-12 py-4 bg-amber-600 hover:bg-amber-500 rounded font-semibold uppercase tracking-wide"
           type="button"
         >
-          Return to Levels with All Complete
+          All Levels Completed! Return to main screen.
         </button>
       </div>
 
