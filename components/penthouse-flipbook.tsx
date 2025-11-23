@@ -61,10 +61,13 @@ const PENTHOUSE_PAGES: FlipBookPage[] = [
 
 export default function PenthouseFlipbook({
   onBack,
+  onGoToPodcastZone,
 }: {
   onBack: () => void
+  onGoToPodcastZone: () => void
 }) {
   const [currentPage, setCurrentPage] = useState(0)
+  const [showCongrats, setShowCongrats] = useState(false)
 
   const page = PENTHOUSE_PAGES[currentPage]
   const progress = ((currentPage + 1) / PENTHOUSE_PAGES.length) * 100
@@ -72,6 +75,8 @@ export default function PenthouseFlipbook({
   const handleNext = () => {
     if (currentPage < PENTHOUSE_PAGES.length - 1) {
       setCurrentPage(currentPage + 1)
+    } else {
+      setShowCongrats(true)
     }
   }
 
@@ -79,6 +84,25 @@ export default function PenthouseFlipbook({
     if (currentPage > 0) {
       setCurrentPage(currentPage - 1)
     }
+  }
+
+  if (showCongrats) {
+    return (
+      <div className="min-h-screen flex flex-col items-center justify-center p-12 bg-black/80 text-amber-300">
+        <div className="max-w-3xl bg-gray-900 bg-opacity-90 rounded-lg p-8 shadow-lg text-center space-y-8">
+          <h2 className="text-4xl font-bold">Congratulations!</h2>
+          <p className="text-lg max-w-xl mx-auto">
+            You have completed the Podcast Zone. Now, explore the essential questions that dive deeper into this era.
+          </p>
+          <button
+            onClick={onGoToPodcastZone}
+            className="mt-4 px-6 py-3 bg-amber-600 hover:bg-amber-500 rounded font-semibold"
+          >
+            Go to Podcast Zone Essays
+          </button>
+        </div>
+      </div>
+    )
   }
 
   return (

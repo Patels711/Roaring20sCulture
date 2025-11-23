@@ -13,9 +13,10 @@ interface RoomViewProps {
 }
 
 export default function RoomView({ roomId, onComplete, onExit, completedRooms }: RoomViewProps) {
-  // Bypass quiz for penthouse room (podcast zone)
+  // Bypass quiz for answers room (podcast zone)
   if (roomId === "answers") {
-    return <PenthouseRoom onBack={() => onComplete(roomId)} />
+    const PodcastZone = require("../app/podcast-zone").default
+    return <PodcastZone onComplete={() => onComplete(roomId)} />
   }
 
   const [quizStarted, setQuizStarted] = useState(false)

@@ -1,7 +1,6 @@
 "use client"
 
 import { useState } from "react"
-import { AnimatePresence, motion } from "framer-motion"
 
 export default function PodcastZone({ onComplete }: { onComplete: () => void }) {
   const [activeSection, setActiveSection] = useState<1 | 2 | null>(null)
@@ -17,16 +16,17 @@ export default function PodcastZone({ onComplete }: { onComplete: () => void }) 
 
   return (
     <div className="min-h-screen p-6 relative bg-slate-900 text-amber-300 flex flex-col max-w-4xl mx-auto rounded-lg shadow-lg border border-amber-500">
-      {/* Top Navigation Buttons */}
       <div className="flex justify-between items-center mb-6">
         <div className="flex space-x-4">
           <button
+            type="button"
             onClick={() => scrollToSection(1)}
             className="px-4 py-2 bg-amber-600 hover:bg-amber-500 rounded font-semibold"
           >
             EQ #1
           </button>
           <button
+            type="button"
             onClick={() => scrollToSection(2)}
             className="px-4 py-2 bg-amber-600 hover:bg-amber-500 rounded font-semibold"
           >
@@ -34,6 +34,7 @@ export default function PodcastZone({ onComplete }: { onComplete: () => void }) 
           </button>
         </div>
         <button
+          type="button"
           onClick={onComplete}
           className="px-4 py-2 bg-amber-700 hover:bg-amber-600 rounded font-semibold"
         >
@@ -41,9 +42,7 @@ export default function PodcastZone({ onComplete }: { onComplete: () => void }) 
         </button>
       </div>
 
-      {/* Sections container with scroll */}
-      <div className="overflow-y-auto max-h-[70vh] space-y-12 px-4">
-        {/* Section 1 */}
+      <div className="overflow-y-auto max-h-[70vh] space-y-12 px-4" role="region" aria-live="polite">
         <section id="section-1" className="scroll-mt-20">
           <h2 className="text-2xl font-bold mb-4">EQ #1</h2>
           <p className="mb-4">
@@ -60,7 +59,6 @@ export default function PodcastZone({ onComplete }: { onComplete: () => void }) 
           </p>
         </section>
 
-        {/* Section 2 */}
         <section id="section-2" className="scroll-mt-20">
           <h2 className="text-2xl font-bold mb-4">EQ #2</h2>
           <p className="mb-4">
@@ -71,9 +69,10 @@ export default function PodcastZone({ onComplete }: { onComplete: () => void }) 
           </p>
         </section>
       </div>
-      {/* Bottom Complete Button */}
+
       <div className="mt-6 flex justify-center">
         <button
+          type="button"
           onClick={onComplete}
           className="px-8 py-3 bg-amber-600 hover:bg-amber-500 rounded uppercase tracking-widest font-semibold text-slate-950"
         >
