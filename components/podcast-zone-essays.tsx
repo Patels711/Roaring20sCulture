@@ -57,7 +57,7 @@ export default function PodcastZoneEssays({ onBack }: { onBack: () => void }) {
           D2 How can the study of multiple perspectives, belief systems and cultures provide a context for understanding and challenging current public actions and decisions in a diverse and interdependent world?
         </p>
           <audio controls className="mb-6 w-full max-w-lg" aria-label="Podcast for EQ #2">
-          <source src="/Audio File 2.mp3" type="audio/mpeg" />
+          <source src="/Essential Question D2.mp3" type="audio/mpeg" />
           Your browser does not support the audio element.
         </audio>
         <p className="leading-relaxed text-lg">
