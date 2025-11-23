@@ -36,8 +36,8 @@ export default function PodcastZoneEssays({ onBack }: { onBack: () => void }) {
         <p className="mb-4 leading-relaxed text-lg">
           The essential question that the American urban and rural cultures of the 1920s answers is A2 (How have economic, political and cultural decisions promoted or prevented the growth of personal freedom, individual responsibility, equality and respect for human dignity?
         </p>
-        <audio controls className="mb-6 w-full max-w-lg" aria-label="Podcast for EQ #1">
-          <source src="/audio/AudioFile1.mp3" type="audio/mpeg" />
+          <audio controls className="mb-6 w-full max-w-lg" aria-label="Podcast for EQ #1">
+          <source src="/Audio File.mp3" type="audio/mpeg" />
           Your browser does not support the audio element.
         </audio>
         <p className="mb-4 leading-relaxed text-lg">
@@ -56,8 +56,8 @@ export default function PodcastZoneEssays({ onBack }: { onBack: () => void }) {
         <p className="mb-4 leading-relaxed text-lg">
           D2 How can the study of multiple perspectives, belief systems and cultures provide a context for understanding and challenging current public actions and decisions in a diverse and interdependent world?
         </p>
-        <audio controls className="mb-6 w-full max-w-lg" aria-label="Podcast for EQ #2">
-          <source src="/audio/AudioFile2.mp3" type="audio/mpeg" />
+          <audio controls className="mb-6 w-full max-w-lg" aria-label="Podcast for EQ #2">
+          <source src="/Audio File 2.mp3" type="audio/mpeg" />
           Your browser does not support the audio element.
         </audio>
         <p className="leading-relaxed text-lg">
