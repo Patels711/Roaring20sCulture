@@ -68,7 +68,12 @@ export default function PodcastZoneEssays({ onBack }: { onBack: () => void }) {
       <div className="mt-auto flex justify-center space-x-8">
         <button
           type="button"
-          onClick={onBack}
+          onClick={() => {
+            if (typeof window !== "undefined") {
+              // Swap: This button leads to levels screen
+              window.location.href = "/"
+            }
+          }}
           className="mb-4 px-12 py-4 bg-amber-600 hover:bg-amber-500 rounded font-semibold"
         >
           Back to Main Screen
@@ -77,8 +82,7 @@ export default function PodcastZoneEssays({ onBack }: { onBack: () => void }) {
           type="button"
           onClick={() => {
             if (typeof window !== "undefined") {
-              // Trigger navigation to congratulations screen by setting URL param or localStorage
-              // Since completion flow is managed above, use history push or similar if applicable
+              // Swap: This button leads to congratulations screen
               window.location.href = "/?escaped=true"
             }
           }}
