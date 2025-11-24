@@ -266,7 +266,7 @@ export default function RoomContent({ roomId, onStartQuiz, onExit }: RoomContent
             <div>
               <p className="text-amber-300/70 uppercase tracking-[0.3em] text-xs font-light mb-6">Begin The Quest</p>
               <a
-                href="https://roaring20leisuretime.vercel.app/exhibit-sahya"
+                href="https://roaring20leisuretime.vercel.app/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-block px-12 py-4 bg-slate-900 border-2 border-amber-600/70 text-amber-50 hover:border-amber-400/90 hover:bg-slate-800 transition-all duration-300 font-light text-sm uppercase tracking-[0.2em] shadow-lg shadow-amber-600/20 hover:shadow-amber-500/30 relative group overflow-hidden"
